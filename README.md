@@ -1,4 +1,4 @@
-# the-outfits-app-web
+# outfits-app-web
 
 The website for [Outfits](https://github.com/vaclavparma/outfits-app) at [theoutfits.app](https://theoutfits.app), a local-first wardrobe app for planning outfits: photograph what you own, mix tops, bottoms, shoes and layers into an outfit, save the combinations you like, and keep a diary of what you wore. Everything lives on your device — there's no account, no backend and no network access.
 
@@ -22,8 +22,8 @@ English lives at `/`, Czech at `/cs/`.
 Requires Node.js 22.23.4 or newer.
 
 ```bash
-git clone https://github.com/vaclavparma/the-outfits-app-web.git
-cd the-outfits-app-web
+git clone https://github.com/vaclavparma/outfits-app-web.git
+cd outfits-app-web
 npm install
 npm run dev
 ```
