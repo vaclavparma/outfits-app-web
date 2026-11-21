@@ -21,6 +21,7 @@ const localized404 = {
 export default defineConfig({
   site: 'https://theoutfits.app',
   trailingSlash: 'ignore',
+  devToolbar: { enabled: false },
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'cs'],
