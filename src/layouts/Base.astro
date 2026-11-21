@@ -10,13 +10,15 @@ interface Props {
   path?: string;        // page path without language prefix, e.g. '' or 'privacy'
   title?: string;
   description?: string;
+  noindex?: boolean;    // error pages: no canonical, no language alternates
 }
-const { lang, path = '', title, description } = Astro.props;
+const { lang, path = '', title, description, noindex = false } = Astro.props;
 const s = t[lang];
 const other: Lang = lang === 'en' ? 'cs' : 'en';
 const pageTitle = title ? `${title} – Outfits` : s.meta.title;
 const desc = description ?? s.meta.description;
 const canonical = new URL(href(lang, path), SITE.url).href;
+const ogLocale = { en: 'en_US', cs: 'cs_CZ' } as const;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -25,19 +27,33 @@ const canonical = new URL(href(lang, path), SITE.url).href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={desc} />
-    <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="en" href={new URL(href('en', path), SITE.url).href} />
-    <link rel="alternate" hreflang="cs" href={new URL(href('cs', path), SITE.url).href} />
-    <link rel="alternate" hreflang="x-default" href={new URL(href('en', path), SITE.url).href} />
+    {noindex ? (
+      <meta name="robots" content="noindex" />
+    ) : (
+      <Fragment>
+        <link rel="canonical" href={canonical} />
+        <link rel="alternate" hreflang="en" href={new URL(href('en', path), SITE.url).href} />
+        <link rel="alternate" hreflang="cs" href={new URL(href('cs', path), SITE.url).href} />
+        <link rel="alternate" hreflang="x-default" href={new URL(href('en', path), SITE.url).href} />
+      </Fragment>
+    )}
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/icon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#f2e9de" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content={ogLocale[lang]} />
+    <meta property="og:locale:alternate" content={ogLocale[other]} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={desc} />
-    <meta property="og:url" content={canonical} />
+    {!noindex && <meta property="og:url" content={canonical} />}
     <meta property="og:image" content={new URL(`/img/og-${lang}.png`, SITE.url).href} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={s.meta.ogImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>

@@ -6,6 +6,13 @@ export const t = {
       title: 'Outfits – mix outfits from your own clothes',
       description:
         'A private wardrobe app. Photograph your clothes once, mix outfits by tapping, and keep a diary of what you actually wear. No account, no ads.',
+      ogImageAlt: 'Outfits: Wear what you already own. A cream T‑shirt, light jeans and a brown jacket.',
+    },
+    notFound: {
+      title: 'Page not found',
+      heading: 'This page doesn’t exist.',
+      text: 'Go back to the',
+      home: 'Outfits home page',
     },
     nav: { how: 'How it works', privacy: 'Privacy', support: 'Support', switchTo: 'Čeština' },
     hero: {
@@ -71,6 +78,13 @@ export const t = {
       title: 'Outfits – skládej outfity z vlastního oblečení',
       description:
         'Soukromý digitální šatník. Oblečení jednou vyfoť, skládej outfity klepnutím a zapisuj si, co opravdu nosíš. Bez registrace a bez reklam.',
+      ogImageAlt: 'Outfits: Nos to, co už máš. Krémové tričko, světlé džíny a hnědá bunda.',
+    },
+    notFound: {
+      title: 'Stránka nenalezena',
+      heading: 'Tahle stránka neexistuje.',
+      text: 'Vrať se na',
+      home: 'úvodní stránku Outfits',
     },
     nav: { how: 'Jak to funguje', privacy: 'Soukromí', support: 'Podpora', switchTo: 'English' },
     hero: {

@@ -13,7 +13,11 @@ export const SITE = {
 };
 
 export type Lang = "en" | "cs";
-export const href = (lang: Lang, path = "") => (lang === "en" ? "/" : "/cs/") + path.replace(/^\//, "");
+// Pages end with a slash (/privacy/), as Cloudflare Pages serves them and the sitemap lists them.
+export const href = (lang: Lang, path = "") => {
+  const p = path.replace(/^\/|\/$/g, "");
+  return (lang === "en" ? "/" : "/cs/") + (p ? `${p}/` : "");
+};
 
 // Which screenshot shows what: public/screenshots/<lang>_screenshot_<n>.webp,
 // numbered as in outfits-app/graphics/screenshots/iphone/.

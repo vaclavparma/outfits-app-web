@@ -1,0 +1,19 @@
+---
+import { t } from '../i18n';
+import { href, type Lang } from '../site';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t[lang].notFound;
+const other: Lang = lang === 'en' ? 'cs' : 'en';
+const otherLabel = lang === 'en' ? 'česká verze' : 'English version';
+---
+<article class="wrap prose page">
+  <h1>{s.heading}</h1>
+  <p>
+    {s.text} <a href={href(lang)}>{s.home}</a> (<a href={href(other)} hreflang={other} lang={other}>{otherLabel}</a>).
+  </p>
+</article>
+
+<style>
+  .page { padding-block: 4rem 0; }
+</style>
