@@ -1,0 +1,142 @@
+---
+import OutfitCanvas from './OutfitCanvas.astro';
+import { t } from '../i18n';
+import { SITE, href, screenshot, type Lang } from '../site';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t[lang];
+---
+<section class="hero wrap">
+  <div class="hero__text">
+    <h1>{s.hero.title}</h1>
+    <p class="hero__lead">{s.hero.lead}</p>
+    <div class="stores">
+      <a class="btn btn--solid" href={SITE.appStore}>App Store</a>
+      <a class="btn" href={SITE.googlePlay}>Google Play</a>
+    </div>
+    <p class="hero__note">{s.hero.note}</p>
+  </div>
+  <OutfitCanvas lang={lang} />
+</section>
+
+<section class="how wrap" id="how" aria-labelledby="how-title">
+  <h2 id="how-title">{s.how.title}</h2>
+  <ol class="steps">
+    {s.how.steps.map((step, i) => (
+      <li class="step">
+        <div class="phone">
+          <img src={screenshot(lang, step.shot)} alt={step.alt} width="660" height="1434" loading="lazy" />
+        </div>
+        <p class="step__n" aria-hidden="true">{i + 1}</p>
+        <h3>{step.title}</h3>
+        <p>{step.text}</p>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<section class="stats" aria-labelledby="stats-title">
+  <div class="wrap stats__inner">
+    <div class="stats__text">
+      <h2 id="stats-title">{s.stats.title}</h2>
+      <p>{s.stats.text}</p>
+      <dl class="facts">
+        {s.stats.facts.map(([value, label]) => (
+          <div><dt>{label}</dt><dd>{value}</dd></div>
+        ))}
+      </dl>
+    </div>
+    <div class="stats__shots">
+      <div class="phone"><img src={screenshot(lang, 'stats')} alt={s.stats.altStats} width="660" height="1434" loading="lazy" /></div>
+      <div class="phone phone--offset"><img src={screenshot(lang, 'detail')} alt={s.stats.altDetail} width="660" height="1434" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<section class="private wrap" aria-labelledby="private-title">
+  <h2 id="private-title">{s.privacy.title}</h2>
+  <dl class="private__list">
+    {s.privacy.items.map(([term, text]) => (
+      <div><dt>{term}</dt><dd>{text}</dd></div>
+    ))}
+  </dl>
+  <p><a href={href(lang, 'privacy')}>{s.privacy.more}</a></p>
+</section>
+
+<section class="cta wrap" aria-labelledby="cta-title">
+  <img src="/img/icon-160.webp" alt="" width="96" height="96" />
+  <div>
+    <h2 id="cta-title">{s.cta.title}</h2>
+    <p>{s.cta.text}</p>
+  </div>
+  <div class="stores">
+    <a class="btn btn--solid" href={SITE.appStore}>App Store</a>
+    <a class="btn" href={SITE.googlePlay}>Google Play</a>
+  </div>
+</section>
+
+<style>
+  /* hero */
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: center;
+    padding-block: clamp(2rem, 6vw, 5rem) clamp(3rem, 8vw, 7rem);
+  }
+  .hero h1 { font-size: var(--step-5); letter-spacing: -0.045em; line-height: 0.94; max-width: 9ch; }
+  .hero__lead { margin-top: 1.6rem; font-size: var(--step-1); line-height: 1.45; color: var(--ink-soft); max-width: 34ch; }
+  .stores { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; }
+  .hero__note { margin-top: 1rem; font-size: var(--step--1); color: var(--muted); }
+  .hero :global(.canvas) { max-width: 30rem; justify-self: end; width: 100%; }
+
+  /* phones (real screenshots) */
+  .phone { background: var(--ink); border-radius: clamp(26px, 3.4vw, 40px); padding: 7px; box-shadow: 0 30px 60px -35px rgb(40 28 18 / 0.55); }
+  .phone img { border-radius: clamp(20px, 2.9vw, 34px); }
+
+  /* how it works – a real sequence, so it is numbered */
+  .how h2, .private h2 { font-size: var(--step-3); }
+  .steps { list-style: none; margin: clamp(2rem, 5vw, 3.5rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 3.5rem); }
+  .step .phone { max-width: 300px; margin-bottom: 1.6rem; }
+  .step__n { font: 500 var(--step--1) var(--mono); color: var(--lagoon); margin-bottom: 0.4rem; }
+  .step h3 { font-size: var(--step-1); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+  .step p:last-child { color: var(--ink-soft); max-width: 34ch; }
+
+  /* stats – the dark band uses the app's own background */
+  .stats { background: var(--ink); color: var(--night-text); margin-top: clamp(4rem, 10vw, 8rem); padding-block: clamp(3.5rem, 9vw, 7rem); overflow: hidden; }
+  .stats__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+  .stats h2 { font-size: var(--step-3); }
+  .stats__text > p { margin-top: 1.3rem; color: var(--night-muted); max-width: 46ch; }
+  .facts { display: flex; gap: clamp(1.5rem, 4vw, 3rem); margin: 2.2rem 0 0; flex-wrap: wrap; }
+  .facts div { display: flex; flex-direction: column-reverse; }
+  .facts dt { color: var(--night-muted); font-size: var(--step--1); }
+  .facts dd { margin: 0; font: 500 clamp(1.8rem, 1.3rem + 2vw, 2.6rem)/1.1 var(--mono); color: #fff; letter-spacing: -0.02em; }
+  .stats__shots { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.8rem, 2vw, 1.5rem); }
+  .stats .phone { background: #2a2826; }
+  .phone--offset { transform: translateY(12%); }
+
+  /* privacy */
+  .private { margin-top: clamp(5rem, 12vw, 9rem); }
+  .private__list { margin: clamp(1.8rem, 4vw, 3rem) 0 1.8rem; border-top: 1px solid var(--line); }
+  .private__list div { display: grid; grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); gap: 0.35rem 2rem; padding: 1.3rem 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .private__list dt { font-weight: 680; font-size: var(--step-1); letter-spacing: -0.015em; }
+  .private__list dd { margin: 0; color: var(--ink-soft); max-width: 46ch; }
+
+  /* final call to action */
+  .cta { margin-top: clamp(4rem, 10vw, 7rem); display: flex; align-items: center; gap: 1.5rem 2rem; flex-wrap: wrap; padding: clamp(1.5rem, 4vw, 2.5rem); background: var(--paper); border-radius: 28px; }
+  .cta img { border-radius: 22px; }
+  .cta h2 { font-size: var(--step-1); letter-spacing: -0.02em; }
+  .cta p { color: var(--muted); }
+  .cta .stores { margin: 0 0 0 auto; }
+
+  @media (max-width: 860px) {
+    .hero, .stats__inner { grid-template-columns: 1fr; }
+    .hero :global(.canvas) { justify-self: stretch; max-width: 26rem; }
+    .steps { grid-template-columns: 1fr; }
+    .step { display: grid; grid-template-columns: 7.5rem 1fr; grid-template-rows: auto auto 1fr; column-gap: 1.25rem; align-items: start; }
+    .private__list div { grid-template-columns: 1fr; }
+    .step .phone { grid-row: span 3; margin: 0; padding: 4px; border-radius: 20px; }
+    .step .phone img { border-radius: 16px; }
+    .cta .stores { margin-left: 0; }
+  }
+</style>

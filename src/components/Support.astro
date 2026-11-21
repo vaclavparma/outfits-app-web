@@ -1,0 +1,35 @@
+---
+import { t } from '../i18n';
+import { SITE, type Lang } from '../site';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t[lang].support;
+---
+<article class="wrap prose page">
+  <h1>{s.title}</h1>
+  <p class="lead">{s.lead} <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+  <p class="muted">{s.reply}</p>
+
+  <h2>{s.faqTitle}</h2>
+  <div class="faq">
+    {s.faq.map(([q, a]) => (
+      <details>
+        <summary>{q}</summary>
+        <p>{a}</p>
+      </details>
+    ))}
+  </div>
+</article>
+
+<style>
+  .page { padding-block: clamp(2rem, 6vw, 4rem) 0; }
+  .lead { font-size: var(--step-1); line-height: 1.45; }
+  .muted { color: var(--muted); }
+  .faq { border-top: 1px solid var(--line); }
+  details { border-bottom: 1px solid var(--line); }
+  summary { cursor: pointer; padding: 1.1rem 2rem 1.1rem 0; font-weight: 620; list-style: none; position: relative; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '+'; position: absolute; right: 0.25rem; top: 50%; translate: 0 -50%; font-weight: 400; font-size: 1.4rem; color: var(--lagoon); }
+  details[open] summary::after { content: '–'; }
+  details p { padding: 0 2rem 1.3rem 0; color: var(--ink-soft); }
+</style>

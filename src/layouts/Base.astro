@@ -1,0 +1,98 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource/ibm-plex-mono/500.css';
+import '../styles/global.css';
+import { SITE, href, type Lang } from '../site';
+import { t } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  path?: string;        // page path without language prefix, e.g. '' or 'privacy'
+  title?: string;
+  description?: string;
+}
+const { lang, path = '', title, description } = Astro.props;
+const s = t[lang];
+const other: Lang = lang === 'en' ? 'cs' : 'en';
+const pageTitle = title ? `${title} – Outfits` : s.meta.title;
+const desc = description ?? s.meta.description;
+const canonical = new URL(href(lang, path), SITE.url).href;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={new URL(href('en', path), SITE.url).href} />
+    <link rel="alternate" hreflang="cs" href={new URL(href('cs', path), SITE.url).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL(href('en', path), SITE.url).href} />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#f2e9de" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(`/img/og-${lang}.png`, SITE.url).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <a class="skip visually-hidden" href="#main">{lang === 'en' ? 'Skip to content' : 'Přeskočit na obsah'}</a>
+    <header class="top wrap">
+      <a class="brand" href={href(lang)}>
+        <img src="/img/icon-160.webp" alt="" width="40" height="40" />
+        <span>Outfits</span>
+      </a>
+      <nav aria-label={lang === 'en' ? 'Main' : 'Hlavní'}>
+        <a href={href(lang) + '#how'}>{s.nav.how}</a>
+        <a href={href(lang, 'privacy')}>{s.nav.privacy}</a>
+        <a href={href(lang, 'support')}>{s.nav.support}</a>
+        <a class="lang" href={href(other, path)} hreflang={other} lang={other}>{s.nav.switchTo}</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="foot">
+      <div class="wrap foot__inner">
+        <div class="foot__brand">
+          <img src="/img/icon-160.webp" alt="" width="48" height="48" />
+          <p>
+            {s.footer.madeBy} {SITE.author}<br />
+            {s.footer.illustrations} <a href={SITE.illustrator.url}>{SITE.illustrator.handle}</a>
+          </p>
+        </div>
+        <ul class="foot__links">
+          <li><a href={href(lang, 'privacy')}>{s.nav.privacy}</a></li>
+          <li><a href={href(lang, 'support')}>{s.nav.support}</a></li>
+          <li><a href={SITE.github}>{s.footer.github}</a></li>
+          <li><a href={SITE.coffee}>{s.footer.coffee}</a></li>
+          <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .skip:focus { position: fixed !important; top: 1rem; left: 1rem; width: auto; height: auto; clip: auto; padding: 0.6rem 1rem; background: var(--ink); color: var(--paper); z-index: 10; border-radius: 8px; }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.25rem; flex-wrap: wrap; }
+  .brand { display: inline-flex; align-items: center; gap: 0.65rem; font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em; text-decoration: none; }
+  .brand img { border-radius: 10px; }
+  nav { display: flex; gap: clamp(0.9rem, 2.5vw, 1.8rem); font-size: var(--step--1); font-weight: 520; flex-wrap: wrap; }
+  nav a { text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  .lang { color: var(--muted); }
+
+  .foot { margin-top: clamp(4rem, 10vw, 8rem); border-top: 1px solid var(--line); padding-block: 2.5rem 3rem; font-size: var(--step--1); color: var(--ink-soft); }
+  .foot__inner { display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .foot__brand { display: flex; gap: 0.9rem; align-items: center; }
+  .foot__brand img { border-radius: 12px; }
+  .foot__links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem 1.6rem; align-items: center; }
+</style>

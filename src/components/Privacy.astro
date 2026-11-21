@@ -1,0 +1,115 @@
+---
+// Keep in sync with PRIVACY.md in the outfits-app repo (same text, in English).
+import { SITE, type Lang } from '../site';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+---
+<article class="wrap prose page">
+  {lang === 'en' ? (
+    <Fragment>
+      <h1>Privacy policy</h1>
+      <p class="updated">Last updated: {SITE.privacyUpdated.en}</p>
+      <p>Outfits (“the app”) is a local-first wardrobe and outfit-planning app. This policy explains what happens to your data when you use it.</p>
+
+      <h2>Summary</h2>
+      <p><strong>The app does not collect, transmit or share any personal data.</strong> There is no account, no backend server, and no network connection of any kind between the app and its developer (or anyone else). Everything you add to the app — clothing photos, wardrobes, outfits, your diary, settings — stays only on your device, for as long as you keep it there.</p>
+
+      <h2>What the app stores, and where</h2>
+      <ul>
+        <li><strong>Clothing photos</strong> you take or pick are copied into the app’s own private storage on your device (its sandboxed documents directory) and never leave it, unless you export them yourself.</li>
+        <li><strong>Wardrobe data</strong> — your wardrobes, kinds and types of clothing, clothing details (name, seller, size, price, note), saved outfits, the diary, and settings such as language or the reminder time — is kept in a single local file in the same private storage.</li>
+        <li><strong>Colors</strong> of your clothing are detected on your device.</li>
+      </ul>
+      <p>Deleting the app deletes this data with it. The app keeps no copy of it anywhere else — including with the developer.</p>
+
+      <h2>Backups</h2>
+      <ul>
+        <li><strong>Export</strong> — in Settings, you can export everything to a single .zip file. It’s created on your device and goes only where you choose to save or share it. Importing a backup replaces the data in the app.</li>
+        <li><strong>System backups</strong> — depending on your device settings, the app’s data may be included in your iCloud or Google backup. Those backups are handled by Apple or Google under their own privacy policies.</li>
+      </ul>
+
+      <h2>Permissions the app asks for</h2>
+      <ul>
+        <li><strong>Camera</strong> — only used when you choose to take a photo of a clothing item. The photo is saved locally, as above; it isn’t uploaded anywhere.</li>
+        <li><strong>Photo library</strong> — only used when you choose to pick existing photos of clothing. Same as above: copied into local storage, nothing is uploaded.</li>
+        <li><strong>Notifications</strong> — only used if you turn on the daily diary reminder. The reminder is scheduled on your device; nothing is sent anywhere for it.</li>
+      </ul>
+      <p>The app doesn’t access any of these unless you actively choose to use them.</p>
+
+      <h2>Third-party services</h2>
+      <p>The app doesn’t include any analytics, advertising, or crash-reporting SDKs, and doesn’t communicate with any third-party service on your behalf.</p>
+      <ul>
+        <li>Now and then, the app may show the system’s rating prompt, which is provided by Apple or Google. “Rate Outfits” in Settings opens the app’s page in the App Store or Google Play.</li>
+        <li>Settings has two optional links — to the app’s source code on <a href={SITE.github}>GitHub</a> and to a <a href={SITE.coffee}>Buy Me a Coffee</a> page — which open in your browser only if you tap them. The app itself sends nothing to either site; whatever you do there is covered by GitHub’s and Buy Me a Coffee’s own privacy policies.</li>
+        <li>The app is distributed through the App Store and Google Play, which may collect information about downloads under their own privacy policies.</li>
+      </ul>
+
+      <h2>Children’s privacy</h2>
+      <p>The app doesn’t collect data from anyone, including children: nothing is collected, from any user, of any age.</p>
+
+      <h2>Deleting your data</h2>
+      <p>You can delete clothing, outfits, diary entries or whole wardrobes in the app. Deleting the app removes all of its data from your device.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>If this policy ever changes — for example, if a future version of the app adds a feature that does involve network access — this page will be updated and the “Last updated” date above will change accordingly.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy or the app: <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+    </Fragment>
+  ) : (
+    <Fragment>
+      <h1>Zásady ochrany soukromí</h1>
+      <p class="updated">Naposledy aktualizováno: {SITE.privacyUpdated.cs}</p>
+      <p>Outfits („aplikace“) je digitální šatník pro plánování outfitů, který všechno ukládá jen v zařízení. Tyto zásady popisují, co se při používání aplikace děje s tvými daty.</p>
+
+      <h2>Ve zkratce</h2>
+      <p><strong>Aplikace nesbírá, neodesílá ani nesdílí žádné osobní údaje.</strong> Nemá účet ani server a mezi aplikací a jejím autorem (ani nikým jiným) neexistuje žádné síťové spojení. Všechno, co do aplikace přidáš — fotky oblečení, šatníky, outfity, deník i nastavení — zůstává jen v tvém zařízení, dokud to tam necháš.</p>
+
+      <h2>Co aplikace ukládá a kam</h2>
+      <ul>
+        <li><strong>Fotky oblečení</strong>, které vyfotíš nebo vybereš, se zkopírují do soukromého úložiště aplikace v tvém zařízení a neopustí ho, pokud je sám/sama nevyexportuješ.</li>
+        <li><strong>Data šatníku</strong> — šatníky, druhy a typy oblečení, údaje o oblečení (název, prodejce, velikost, cena, poznámka), uložené outfity, deník a nastavení jako jazyk nebo čas upomínky — jsou v jednom místním souboru ve stejném úložišti.</li>
+        <li><strong>Barvy</strong> oblečení se rozpoznávají přímo v zařízení.</li>
+      </ul>
+      <p>Smazáním aplikace se smažou i tato data. Aplikace nikde jinde žádnou jejich kopii nemá — ani u autora.</p>
+
+      <h2>Zálohy</h2>
+      <ul>
+        <li><strong>Export</strong> — v Nastavení můžeš všechno vyexportovat do jednoho souboru .zip. Vznikne v tvém zařízení a skončí jen tam, kam ho sám/sama uložíš nebo pošleš. Import zálohy nahradí data v aplikaci.</li>
+        <li><strong>Systémové zálohy</strong> — podle nastavení zařízení mohou být data aplikace součástí zálohy na iCloud nebo Google. Tyto zálohy spravují Apple a Google podle svých vlastních zásad.</li>
+      </ul>
+
+      <h2>Oprávnění, o která aplikace žádá</h2>
+      <ul>
+        <li><strong>Fotoaparát</strong> — jen když se rozhodneš vyfotit kousek oblečení. Fotka se uloží v zařízení, jak je popsáno výše, a nikam se nenahrává.</li>
+        <li><strong>Fotky</strong> — jen když se rozhodneš vybrat existující fotky oblečení. Stejně jako výše: zkopírují se do úložiště aplikace a nic se nenahrává.</li>
+        <li><strong>Oznámení</strong> — jen pokud si zapneš denní upomínku deníku. Upomínku naplánuje přímo zařízení a nic se kvůli ní nikam neposílá.</li>
+      </ul>
+      <p>Aplikace k ničemu z toho nepřistupuje, dokud to sám/sama nezvolíš.</p>
+
+      <h2>Služby třetích stran</h2>
+      <p>Aplikace neobsahuje žádné analytické, reklamní ani crash-reportovací nástroje a nekomunikuje za tebe s žádnou službou třetí strany.</p>
+      <ul>
+        <li>Aplikace občas může zobrazit systémovou výzvu k hodnocení, kterou poskytuje Apple nebo Google. „Ohodnotit Outfits“ v Nastavení otevře stránku aplikace v App Storu nebo na Google Play.</li>
+        <li>V Nastavení jsou dva dobrovolné odkazy — na zdrojový kód aplikace na <a href={SITE.github}>GitHub</a> a na stránku <a href={SITE.coffee}>Buy Me a Coffee</a> — které se otevřou v prohlížeči, jen když na ně klepneš. Aplikace sama na tyto weby nic neposílá; co na nich děláš, se řídí zásadami GitHubu a Buy Me a Coffee.</li>
+        <li>Aplikace se distribuuje přes App Store a Google Play, které mohou o stažení sbírat údaje podle svých vlastních zásad.</li>
+      </ul>
+
+      <h2>Děti</h2>
+      <p>Aplikace nesbírá údaje od nikoho, tedy ani od dětí: nesbírá se nic, od žádného uživatele, v žádném věku.</p>
+
+      <h2>Smazání dat</h2>
+      <p>Oblečení, outfity, záznamy v deníku i celé šatníky můžeš smazat přímo v aplikaci. Smazáním aplikace odstraníš ze zařízení všechna její data.</p>
+
+      <h2>Změny těchto zásad</h2>
+      <p>Pokud se tyto zásady někdy změní — třeba kdyby budoucí verze aplikace přidala funkci, která síť používá — tato stránka se aktualizuje a změní se i datum „Naposledy aktualizováno“ nahoře.</p>
+
+      <h2>Kontakt</h2>
+      <p>Dotazy k těmto zásadám nebo k aplikaci: <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+    </Fragment>
+  )}
+</article>
+
+<style>
+  .page { padding-block: clamp(2rem, 6vw, 4rem) 0; }
+</style>
