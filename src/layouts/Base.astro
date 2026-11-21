@@ -64,7 +64,7 @@ const canonical = new URL(href(lang, path), SITE.url).href;
         <div class="foot__brand">
           <img src="/img/icon-160.webp" alt="" width="48" height="48" />
           <p>
-            {s.footer.madeBy} {SITE.author}<br />
+            {s.footer.madeBy} <a href={SITE.author.url}>{SITE.author.name}</a><br />
             {s.footer.illustrations} <a href={SITE.illustrator.url}>{SITE.illustrator.handle}</a>
           </p>
         </div>

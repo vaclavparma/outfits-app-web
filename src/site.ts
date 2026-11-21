@@ -8,7 +8,7 @@ export const SITE = {
   github: "https://github.com/vaclavparma/outfits-app",
   coffee: "https://buymeacoffee.com/vaclavparma",
   illustrator: { handle: "lucylens.cz", url: "https://lucylens.cz" },
-  author: "Václav Parma",
+  author: { name: "Václav Parma", url: "https://vaclavparma.cz" },
   privacyUpdated: { en: "November 21, 2026", cs: "21. listopadu 2026" },
 };
 

@@ -36,7 +36,7 @@ export const t = {
       title: 'Your closet stays on your phone',
       items: [
         ['No account', 'Open the app and start. There is nothing to sign up for.'],
-        ['No ads, no tracking', 'Outfits doesn’t collect or send any data about you.'],
+        ['No ads, no tracking', 'Outfits sends nothing about you anywhere. Your diary and stats are calculated on your phone, just for you.'],
         ['Photos stay on your device', 'Your clothes are stored only on your phone or tablet.'],
         ['Your backup, your file', 'Export your whole wardrobe to a single .zip file whenever you like.'],
         ['Open source', 'The code is public on GitHub, so anyone can check what the app does.'],
@@ -101,7 +101,7 @@ export const t = {
       title: 'Šatník zůstává v tvém telefonu',
       items: [
         ['Bez registrace', 'Otevřeš aplikaci a začneš. Není kam se registrovat.'],
-        ['Bez reklam a sledování', 'Outfits o tobě nesbírá ani neodesílá žádná data.'],
+        ['Bez reklam a sledování', 'Outfits o tobě nikam nic neposílá. Deník i statistiky se počítají v tvém telefonu, jen pro tebe.'],
         ['Fotky zůstávají v zařízení', 'Tvoje oblečení je uložené jen v telefonu nebo tabletu.'],
         ['Tvoje záloha, tvůj soubor', 'Celý šatník kdykoli vyexportuješ do jednoho souboru .zip.'],
         ['Otevřený zdrojový kód', 'Kód je veřejně na GitHubu, takže si kdokoli ověří, co aplikace dělá.'],

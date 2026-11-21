@@ -83,8 +83,10 @@ const s = t[lang];
     gap: clamp(2rem, 6vw, 6rem);
     align-items: center;
     padding-block: clamp(2rem, 6vw, 5rem) clamp(3rem, 8vw, 7rem);
+    margin-bottom: 32px;
   }
-  .hero h1 { font-size: var(--step-5); letter-spacing: -0.045em; line-height: 0.94; max-width: 9ch; }
+  /* 1.1, not tighter: Czech carons (š, ž) on line two would hit the comma on line one */
+  .hero h1 { font-size: var(--step-5); letter-spacing: -0.045em; line-height: 1.1; max-width: 9ch; }
   .hero__lead { margin-top: 1.6rem; font-size: var(--step-1); line-height: 1.45; color: var(--ink-soft); max-width: 34ch; }
   .stores { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; }
   .hero__note { margin-top: 1rem; font-size: var(--step--1); color: var(--muted); }
@@ -96,8 +98,10 @@ const s = t[lang];
 
   /* how it works – a real sequence, so it is numbered */
   .how h2, .private h2 { font-size: var(--step-3); }
-  .steps { list-style: none; margin: clamp(2rem, 5vw, 3.5rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 3.5rem); }
-  .step .phone { max-width: 300px; margin-bottom: 1.6rem; }
+  .steps { list-style: none; margin: clamp(1.5rem, 3.5vw, 2.5rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 3.5rem); }
+  /* Sized by the viewport height (phone ≈ 2.17× as tall as wide), so the
+     whole section — heading, phones, text — fits on one laptop screen. */
+  .step .phone { width: min(100%, 280px, 25vh); margin-bottom: 1.25rem; }
   .step__n { font: 500 var(--step--1) var(--mono); color: var(--lagoon); margin-bottom: 0.4rem; }
   .step h3 { font-size: var(--step-1); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
   .step p:last-child { color: var(--ink-soft); max-width: 34ch; }
@@ -135,7 +139,7 @@ const s = t[lang];
     .steps { grid-template-columns: 1fr; }
     .step { display: grid; grid-template-columns: 7.5rem 1fr; grid-template-rows: auto auto 1fr; column-gap: 1.25rem; align-items: start; }
     .private__list div { grid-template-columns: 1fr; }
-    .step .phone { grid-row: span 3; margin: 0; padding: 4px; border-radius: 20px; }
+    .step .phone { grid-row: span 3; width: auto; margin: 0; padding: 4px; border-radius: 20px; }
     .step .phone img { border-radius: 16px; }
     .cta .stores { margin-left: 0; }
   }
