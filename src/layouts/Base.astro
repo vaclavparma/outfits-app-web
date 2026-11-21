@@ -95,4 +95,16 @@ const canonical = new URL(href(lang, path), SITE.url).href;
   .foot__brand { display: flex; gap: 0.9rem; align-items: center; }
   .foot__brand img { border-radius: 12px; }
   .foot__links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem 1.6rem; align-items: center; }
+
+  /* Phones: the nav gets its own row, the language switch moves up beside
+     the logo (the Czech nav doesn't fit one row with it), and links get
+     finger-sized tap areas (~40px) without looking bigger. */
+  @media (max-width: 600px) {
+    .top { position: relative; row-gap: 0.25rem; padding-block: 1rem 0.25rem; }
+    nav { width: 100%; gap: 0 1.25rem; }
+    nav a { padding-block: 0.6rem; }
+    nav .lang { position: absolute; top: 1rem; right: 0; line-height: 40px; padding: 0 0 0 1rem; }
+    .foot__links { gap: 0 1.4rem; }
+    .foot__links a { display: inline-block; padding-block: 0.55rem; }
+  }
 </style>

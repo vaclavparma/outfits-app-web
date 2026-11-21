@@ -134,7 +134,7 @@ const s = t[lang];
   .cta .stores { margin: 0 0 0 auto; }
 
   @media (max-width: 860px) {
-    .hero, .stats__inner { grid-template-columns: 1fr; }
+    .hero, .stats__inner { grid-template-columns: minmax(0, 1fr); }
     .hero :global(.canvas) { justify-self: stretch; max-width: 26rem; }
     .steps { grid-template-columns: 1fr; }
     .step { display: grid; grid-template-columns: 7.5rem 1fr; grid-template-rows: auto auto 1fr; column-gap: 1.25rem; align-items: start; }
@@ -142,5 +142,12 @@ const s = t[lang];
     .step .phone { grid-row: span 3; width: auto; margin: 0; padding: 4px; border-radius: 20px; }
     .step .phone img { border-radius: 16px; }
     .cta .stores { margin-left: 0; }
+  }
+
+  @media (max-width: 600px) {
+    /* icon and text side by side, buttons below */
+    .cta { gap: 1.25rem 1rem; }
+    .cta img { width: 64px; height: 64px; border-radius: 15px; }
+    .cta > div:not(.stores) { flex: 1 1 10rem; }
   }
 </style>

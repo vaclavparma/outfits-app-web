@@ -75,6 +75,14 @@ const swapWord = lang === 'en' ? 'tap to swap' : 'klepni pro výměnu';
      canvas taller, and the hero (centered beside it) jumps. Screen readers
      still get the full text from aria-live. */
   [data-status] { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* Phones: too narrow for one line. Two lines, always reserved, so the
+     content below doesn't jump either. */
+  @media (max-width: 600px) {
+    [data-status] {
+      white-space: normal; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+      line-height: 1.35; min-height: 2.7em;
+    }
+  }
   .shuffle {
     display: inline-flex; align-items: center; gap: 0.5em; flex: none;
     min-height: 2.6rem; padding: 0 1.1rem; border-radius: 999px;
