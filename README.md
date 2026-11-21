@@ -93,6 +93,10 @@ npm run sync:app
 
 support@theoutfits.app
 
+## Acknowledgements
+
+Thanks to [lucylens.cz](https://lucylens.cz) ([@by.lucylens](https://www.instagram.com/by.lucylens/)) for the clothing illustrations.
+
 ## License
 
 The code is MIT — see [LICENSE](LICENSE).
