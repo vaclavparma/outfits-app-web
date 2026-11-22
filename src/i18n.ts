@@ -3,9 +3,9 @@ import type { Lang } from './site';
 export const t = {
   en: {
     meta: {
-      title: 'Outfits – mix outfits from your own clothes',
+      title: 'Outfits – wardrobe app to mix outfits from your own clothes',
       description:
-        'A private wardrobe app. Photograph your clothes once, mix outfits by tapping, and keep a diary of what you actually wear. No account, no ads.',
+        'A private wardrobe app for mixing outfits from your own clothes. Log what you wear and see what just hangs in your closet. Free, no account, no ads.',
       ogImageAlt: 'Outfits: Wear what you already own. A cream T‑shirt, light jeans and a brown jacket.',
     },
     notFound: {
@@ -17,8 +17,8 @@ export const t = {
     nav: { how: 'How it works', privacy: 'Privacy', support: 'Support', switchTo: 'Čeština' },
     hero: {
       title: 'Wear what you already own.',
-      lead: 'Outfits is a private wardrobe app. Photograph your clothes once, mix outfits by tapping, and keep a diary of what you actually wear.',
-      note: 'Free on iPhone, iPad and Android. No account, no ads.',
+      lead: 'Outfits is a private wardrobe app for mixing outfits from your own clothes. Photograph them once, tap to swap pieces, and log what you actually wear.',
+      note: 'Free on iPhone, iPad and Android. No account, no ads, no tracking.',
       hint: 'Tap a piece to swap it.',
       shuffle: 'Shuffle',
       canvasLabel: 'Try it: a sample outfit you can change',
@@ -28,29 +28,33 @@ export const t = {
       title: 'How it works',
       steps: [
         { title: 'Photograph your clothes', text: 'Take a photo or pick several from your gallery. Outfits recognizes the colors and names each piece for you, like “Brown jacket”.', shot: 'wardrobe', alt: 'Wardrobe screen with clothes sorted into T‑shirts, Sweaters, Hoodies, Coats, Jackets and Pants' },
-        { title: 'Mix outfits', text: 'Tap a piece to pick another, layer a jacket over a tee, pin what you like and shuffle the rest. Save the looks you like in one tap.', shot: 'outfit', alt: 'Outfit screen with a cream tee, brown jacket and light jeans' },
+        { title: 'Mix outfits', text: 'Tap a piece to pick another, layer a jacket over a tee, pin what you like and shuffle the rest. Save a look in one tap.', shot: 'outfit', alt: 'Outfit screen with a cream tee, brown jacket and light jeans' },
         { title: 'Log what you wear', text: 'Tap “Wearing it today” and the outfit lands in your diary. Changed during the day? Log another one.', shot: 'diary', alt: 'Diary calendar with colored dots for every logged day' },
       ],
     },
     stats: {
-      title: 'See what you actually wear',
-      text: 'Times worn, cost per wear, pieces you haven’t touched in a month, and how the colors you own compare with the colors you wear. Most of us wear a small part of our closet. Outfits shows you which part, so you can rediscover the rest before buying something new.',
+      title: 'See what you wear and what just hangs',
+      text: [
+        'Most of us wear a small part of our closet. Your diary shows which part, and which pieces haven’t been worn in a month. That’s where to look before you buy something new.',
+        'Every piece shows how many times it’s been worn and what one wear costs you. That cost drops every time you put it on again.',
+        'Seeing the colors you own next to the colors you wear makes a forgotten shade easy to spot. And in your Collection, “Not worn lately” brings back looks you liked that haven’t had a turn in a while.',
+      ],
       facts: [['14×', 'worn'], ['$5', 'per wear'], ['today', 'last worn']],
       altStats: 'Stats screen comparing colors in the wardrobe with colors worn',
       altDetail: 'Detail of a brown jacket: worn 14 times, 5 dollars per wear',
     },
     privacy: {
-      title: 'Your closet stays on your phone',
+      title: 'Your wardrobe stays on your phone',
       items: [
         ['No account', 'Open the app and start. There is nothing to sign up for.'],
         ['No ads, no tracking', 'Outfits sends nothing about you anywhere. Your diary and stats are calculated on your phone, just for you.'],
-        ['Photos stay on your device', 'Your clothes are stored only on your phone or tablet.'],
+        ['Photos stay on your device', 'Your photos, outfits and diary are stored only on your phone or tablet.'],
         ['Your backup, your file', 'Export your whole wardrobe to a single .zip file whenever you like.'],
         ['Open source', 'The code is public on GitHub, so anyone can check what the app does.'],
       ],
       more: 'Read the privacy policy',
     },
-    cta: { title: 'Get Outfits', text: 'Free on iPhone, iPad and Android.' },
+    cta: { title: 'Get Outfits', text: 'Start with what’s already in your closet. Free on iPhone, iPad and Android.' },
     footer: {
       madeBy: 'Made by',
       illustrations: 'Illustrations by',
@@ -75,9 +79,9 @@ export const t = {
   },
   cs: {
     meta: {
-      title: 'Outfits – skládej outfity z vlastního oblečení',
+      title: 'Outfits – aplikace na skládání outfitů z vlastního oblečení',
       description:
-        'Soukromý digitální šatník. Oblečení jednou vyfoť, skládej outfity klepnutím a zapisuj si, co opravdu nosíš. Bez registrace a bez reklam.',
+        'Soukromý digitální šatník na skládání outfitů z vlastního oblečení. Zapisuj si, co nosíš, a uvidíš, co ve skříni jen visí. Zdarma, bez registrace a bez reklam.',
       ogImageAlt: 'Outfits: Nos to, co už máš. Krémové tričko, světlé džíny a hnědá bunda.',
     },
     notFound: {
@@ -89,8 +93,8 @@ export const t = {
     nav: { how: 'Jak to funguje', privacy: 'Soukromí', support: 'Podpora', switchTo: 'English' },
     hero: {
       title: 'Nos to, co už máš.',
-      lead: 'Outfits je soukromý digitální šatník. Oblečení jednou vyfoť, outfity skládej klepnutím a zapisuj si, co opravdu nosíš.',
-      note: 'Zdarma pro iPhone, iPad a Android. Bez registrace a bez reklam.',
+      lead: 'Outfits je soukromý digitální šatník, ve kterém skládáš outfity z vlastního oblečení. Jednou ho vyfoť, kousky měň klepnutím a zapisuj si, co opravdu nosíš.',
+      note: 'Zdarma pro iPhone, iPad a Android. Bez registrace, bez reklam, bez sledování.',
       hint: 'Klepni na kousek a vyměň ho.',
       shuffle: 'Zamíchat',
       canvasLabel: 'Vyzkoušej si to: ukázkový outfit, který můžeš měnit',
@@ -100,13 +104,17 @@ export const t = {
       title: 'Jak to funguje',
       steps: [
         { title: 'Vyfoť své oblečení', text: 'Vyfoť kousek nebo vyber víc fotek z galerie najednou. Outfits rozpozná barvy a každý kus sám pojmenuje, třeba „Hnědá bunda“.', shot: 'wardrobe', alt: 'Šatník s oblečením roztříděným na trička, svetry, mikiny, kabáty, bundy a kalhoty' },
-        { title: 'Skládej outfity', text: 'Klepnutím na kousek vybereš jiný, přes tričko přidáš bundu, co se ti líbí, připíchneš a zbytek zamícháš. Oblíbené outfity uložíš jedním klepnutím.', shot: 'outfit', alt: 'Plátno s outfitem: krémové tričko, hnědá bunda a světlé džíny' },
-        { title: 'Zapisuj, co nosíš', text: 'Klepni na „Nosím dnes“ a outfit se zapíše do deníku. Převlékl(a) ses? Zapiš i ten další.', shot: 'diary', alt: 'Kalendář deníku s barevnými tečkami u každého zapsaného dne' },
+        { title: 'Skládej outfity', text: 'Klepni na kousek a vyber jiný, přes tričko přidej bundu, připni, co se ti líbí, a zbytek zamíchej. Outfit, který se ti líbí, uložíš jedním klepnutím.', shot: 'outfit', alt: 'Plátno s outfitem: krémové tričko, hnědá bunda a světlé džíny' },
+        { title: 'Zapisuj, co nosíš', text: 'Klepni na „Nosím dnes“ a outfit se zapíše do deníku. Převlékáš se během dne? Zapiš i další outfit.', shot: 'diary', alt: 'Kalendář deníku s barevnými tečkami u každého zapsaného dne' },
       ],
     },
     stats: {
-      title: 'Uvidíš, co opravdu nosíš',
-      text: 'Kolikrát jsi který kus měl(a) na sobě, kolik tě stojí jedno nošení, na co jsi měsíc nesáhl(a) a jak se barvy ve skříni liší od těch, které nosíš. Většina z nás nosí jen malou část šatníku. Outfits ti ukáže kterou, abys zbytek znovu objevil(a) dřív, než si koupíš něco nového.',
+      title: 'Uvidíš, co nosíš a co jen visí',
+      text: [
+        'Většina z nás nosí jen malou část šatníku. Deník ti ukáže kterou a co už měsíc jen visí. Tam se vyplatí podívat dřív, než si koupíš něco nového.',
+        'U každého kusu uvidíš, kolikrát už byl nošený a kolik tě stojí jedno nošení. Tahle částka s každým dalším nošením klesá.',
+        'Barvy ve skříni uvidíš vedle barev, které opravdu nosíš, takže zapomenutý odstín snadno najdeš. A ve Sbírce ti filtr „Dlouho nenošené“ vrátí outfity, které se ti líbily, ale už nějakou dobu nebyly na řadě.',
+      ],
       facts: [['14×', 'nošeno'], ['35 Kč', 'za nošení'], ['dnes', 'naposledy']],
       altStats: 'Statistiky porovnávající barvy v šatníku a barvy na sobě',
       altDetail: 'Detail hnědé bundy: nošeno 14krát, 35 Kč za nošení',
@@ -116,13 +124,13 @@ export const t = {
       items: [
         ['Bez registrace', 'Otevřeš aplikaci a začneš. Není kam se registrovat.'],
         ['Bez reklam a sledování', 'Outfits o tobě nikam nic neposílá. Deník i statistiky se počítají v tvém telefonu, jen pro tebe.'],
-        ['Fotky zůstávají v zařízení', 'Tvoje oblečení je uložené jen v telefonu nebo tabletu.'],
+        ['Fotky zůstávají v zařízení', 'Fotky, outfity i deník jsou uložené jen v telefonu nebo tabletu.'],
         ['Tvoje záloha, tvůj soubor', 'Celý šatník kdykoli vyexportuješ do jednoho souboru .zip.'],
         ['Otevřený zdrojový kód', 'Kód je veřejně na GitHubu, takže si kdokoli ověří, co aplikace dělá.'],
       ],
       more: 'Přečti si zásady ochrany soukromí',
     },
-    cta: { title: 'Stáhni si Outfits', text: 'Zdarma pro iPhone, iPad a Android.' },
+    cta: { title: 'Stáhni si Outfits', text: 'Začni tím, co už máš ve skříni. Zdarma pro iPhone, iPad a Android.' },
     footer: {
       madeBy: 'Vytvořil',
       illustrations: 'Ilustrace',

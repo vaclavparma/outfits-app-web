@@ -39,7 +39,7 @@ const s = t[lang];
   <div class="wrap stats__inner">
     <div class="stats__text">
       <h2 id="stats-title">{s.stats.title}</h2>
-      <p>{s.stats.text}</p>
+      {s.stats.text.map((para) => <p>{para}</p>)}
       <dl class="facts">
         {s.stats.facts.map(([value, label]) => (
           <div><dt>{label}</dt><dd>{value}</dd></div>
@@ -111,6 +111,7 @@ const s = t[lang];
   .stats__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 5rem); align-items: center; }
   .stats h2 { font-size: var(--step-3); }
   .stats__text > p { margin-top: 1.3rem; color: var(--night-muted); max-width: 46ch; }
+  .stats__text > p + p { margin-top: 0.9rem; }
   .facts { display: flex; gap: clamp(1.5rem, 4vw, 3rem); margin: 2.2rem 0 0; flex-wrap: wrap; }
   .facts div { display: flex; flex-direction: column-reverse; }
   .facts dt { color: var(--night-muted); font-size: var(--step--1); }
