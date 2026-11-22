@@ -102,8 +102,8 @@ const ogLocale = { en: 'en_US', cs: 'cs_CZ' } as const;
   .brand { display: inline-flex; align-items: center; gap: 0.65rem; font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em; text-decoration: none; }
   .brand img { border-radius: 10px; }
   nav { display: flex; gap: clamp(0.9rem, 2.5vw, 1.8rem); font-size: var(--step--1); font-weight: 520; flex-wrap: wrap; }
-  nav a { text-decoration: none; }
-  nav a:hover { text-decoration: underline; }
+  nav a { text-decoration: underline; text-decoration-color: transparent; }
+  nav a:hover { text-decoration-color: currentColor; }
   .lang { color: var(--muted); }
 
   .foot { margin-top: clamp(4rem, 10vw, 8rem); border-top: 1px solid var(--line); padding-block: 2.5rem 3rem; font-size: var(--step--1); color: var(--ink-soft); }
