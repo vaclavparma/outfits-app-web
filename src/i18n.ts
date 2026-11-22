@@ -16,7 +16,7 @@ export const t = {
     },
     nav: { how: 'How it works', privacy: 'Privacy', support: 'Support', switchTo: 'Čeština' },
     hero: {
-      title: 'Wear what you already own.',
+      title: ['Wear what you', 'already own.'],
       lead: 'Outfits is a private wardrobe app for mixing outfits from your own clothes. Photograph them once, tap to swap pieces, and log what you actually wear.',
       note: 'Free on iPhone, iPad and Android. No account, no ads, no tracking.',
       hint: 'Tap a piece to swap it.',
@@ -33,18 +33,17 @@ export const t = {
       ],
     },
     stats: {
-      title: 'See what you wear and what just hangs',
+      title: ['See what you wear', 'and what just hangs'],
       text: [
         'Most of us wear a small part of our closet. Your diary shows which part, and which pieces haven’t been worn in a month. That’s where to look before you buy something new.',
         'Every piece shows how many times it’s been worn and what one wear costs you. That cost drops every time you put it on again.',
         'Seeing the colors you own next to the colors you wear makes a forgotten shade easy to spot. And in your Collection, “Not worn lately” brings back looks you liked that haven’t had a turn in a while.',
       ],
-      facts: [['14×', 'worn'], ['$5', 'per wear'], ['today', 'last worn']],
       altStats: 'Stats screen comparing colors in the wardrobe with colors worn',
       altDetail: 'Detail of a brown jacket: worn 14 times, 5 dollars per wear',
     },
     privacy: {
-      title: 'Your wardrobe stays on your phone',
+      title: ['Your wardrobe', 'stays on your phone'],
       items: [
         ['No account', 'Open the app and start. There is nothing to sign up for.'],
         ['No ads, no tracking', 'Outfits sends nothing about you anywhere. Your diary and stats are calculated on your phone, just for you.'],
@@ -92,7 +91,7 @@ export const t = {
     },
     nav: { how: 'Jak to funguje', privacy: 'Soukromí', support: 'Podpora', switchTo: 'English' },
     hero: {
-      title: 'Nos to, co už máš.',
+      title: ['Nos to,', 'co už máš.'],
       lead: 'Outfits je soukromý digitální šatník, ve kterém skládáš outfity z vlastního oblečení. Jednou ho vyfoť, kousky měň klepnutím a zapisuj si, co opravdu nosíš.',
       note: 'Zdarma pro iPhone, iPad a Android. Bez registrace, bez reklam, bez sledování.',
       hint: 'Klepni na kousek a vyměň ho.',
@@ -109,18 +108,17 @@ export const t = {
       ],
     },
     stats: {
-      title: 'Uvidíš, co nosíš a co jen visí',
+      title: ['Uvidíš, co nosíš', 'a co jen visí'],
       text: [
         'Většina z nás nosí jen malou část šatníku. Deník ti ukáže kterou a co už měsíc jen visí. Tam se vyplatí podívat dřív, než si koupíš něco nového.',
         'U každého kusu uvidíš, kolikrát už byl nošený a kolik tě stojí jedno nošení. Tahle částka s každým dalším nošením klesá.',
         'Barvy ve skříni uvidíš vedle barev, které opravdu nosíš, takže zapomenutý odstín snadno najdeš. A ve Sbírce ti filtr „Dlouho nenošené“ vrátí outfity, které se ti líbily, ale už nějakou dobu nebyly na řadě.',
       ],
-      facts: [['14×', 'nošeno'], ['35 Kč', 'za nošení'], ['dnes', 'naposledy']],
       altStats: 'Statistiky porovnávající barvy v šatníku a barvy na sobě',
       altDetail: 'Detail hnědé bundy: nošeno 14krát, 35 Kč za nošení',
     },
     privacy: {
-      title: 'Šatník zůstává v tvém telefonu',
+      title: ['Šatník zůstává', 'v tvém telefonu'],
       items: [
         ['Bez registrace', 'Otevřeš aplikaci a začneš. Není kam se registrovat.'],
         ['Bez reklam a sledování', 'Outfits o tobě nikam nic neposílá. Deník i statistiky se počítají v tvém telefonu, jen pro tebe.'],

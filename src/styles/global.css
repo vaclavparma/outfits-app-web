@@ -70,3 +70,6 @@ p { margin: 0; text-wrap: pretty; }
 .prose ul { padding-left: 1.2em; }
 .prose li { margin-bottom: 0.4em; }
 .prose .updated { color: var(--muted); font-size: var(--step--1); margin-bottom: 2em; }
+
+/* second line of a two-line heading, as in the store screenshots */
+.accent { color: var(--lagoon); }

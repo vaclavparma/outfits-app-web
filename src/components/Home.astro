@@ -8,7 +8,7 @@ const s = t[lang];
 ---
 <section class="hero wrap">
   <div class="hero__text">
-    <h1>{s.hero.title}</h1>
+    <h1>{s.hero.title[0]}<br /><span class="accent">{s.hero.title[1]}</span></h1>
     <p class="hero__lead">{s.hero.lead}</p>
     <div class="stores">
       <a class="btn btn--solid" href={SITE.appStore}>App Store</a>
@@ -38,13 +38,8 @@ const s = t[lang];
 <section class="stats" aria-labelledby="stats-title">
   <div class="wrap stats__inner">
     <div class="stats__text">
-      <h2 id="stats-title">{s.stats.title}</h2>
+      <h2 id="stats-title">{s.stats.title[0]}<br /><span class="accent">{s.stats.title[1]}</span></h2>
       {s.stats.text.map((para) => <p>{para}</p>)}
-      <dl class="facts">
-        {s.stats.facts.map(([value, label]) => (
-          <div><dt>{label}</dt><dd>{value}</dd></div>
-        ))}
-      </dl>
     </div>
     <div class="stats__shots">
       <div class="phone"><img src={screenshot(lang, 'stats')} alt={s.stats.altStats} width="660" height="1434" loading="lazy" /></div>
@@ -54,7 +49,7 @@ const s = t[lang];
 </section>
 
 <section class="private wrap" aria-labelledby="private-title">
-  <h2 id="private-title">{s.privacy.title}</h2>
+  <h2 id="private-title">{s.privacy.title[0]}<br /><span class="accent">{s.privacy.title[1]}</span></h2>
   <dl class="private__list">
     {s.privacy.items.map(([term, text]) => (
       <div><dt>{term}</dt><dd>{text}</dd></div>
@@ -86,7 +81,10 @@ const s = t[lang];
     margin-bottom: 32px;
   }
   /* 1.1, not tighter: Czech carons (š, ž) on line two would hit the comma on line one */
-  .hero h1 { font-size: var(--step-5); letter-spacing: -0.045em; line-height: 1.1; max-width: 9ch; }
+  /* Two fixed lines. The longest one ("Wear what you") is ~6.8em wide, so
+     14cqi keeps it inside the text column at any width. */
+  .hero__text { container-type: inline-size; }
+  .hero h1 { font-size: min(var(--step-5), 14cqi); letter-spacing: -0.045em; line-height: 1.1; white-space: nowrap; }
   .hero__lead { margin-top: 1.6rem; font-size: var(--step-1); line-height: 1.45; color: var(--ink-soft); max-width: 34ch; }
   .stores { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; }
   .hero__note { margin-top: 1rem; font-size: var(--step--1); color: var(--muted); }
@@ -112,10 +110,6 @@ const s = t[lang];
   .stats h2 { font-size: var(--step-3); }
   .stats__text > p { margin-top: 1.3rem; color: var(--night-muted); max-width: 46ch; }
   .stats__text > p + p { margin-top: 0.9rem; }
-  .facts { display: flex; gap: clamp(1.5rem, 4vw, 3rem); margin: 2.2rem 0 0; flex-wrap: wrap; }
-  .facts div { display: flex; flex-direction: column-reverse; }
-  .facts dt { color: var(--night-muted); font-size: var(--step--1); }
-  .facts dd { margin: 0; font: 500 clamp(1.8rem, 1.3rem + 2vw, 2.6rem)/1.1 var(--mono); color: #fff; letter-spacing: -0.02em; }
   .stats__shots { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.8rem, 2vw, 1.5rem); }
   .stats .phone { background: #2a2826; }
   .phone--offset { transform: translateY(12%); }

@@ -9,7 +9,7 @@ export const SITE = {
   coffee: "https://buymeacoffee.com/vaclavparma",
   illustrator: { handle: "lucylens.cz", url: "https://lucylens.cz" },
   author: { name: "Václav Parma", url: "https://vaclavparma.cz" },
-  privacyUpdated: { en: "November 22, 2026", cs: "22. listopadu 2026" },
+  privacyUpdated: { en: "November 21, 2026", cs: "21. listopadu 2026" },
 };
 
 export type Lang = "en" | "cs";
